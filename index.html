@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grocery Price Is Right</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <header>
+    <h1>🛒 Grocery Price Is Right</h1>
+    <button id="installBtn" hidden>Install App</button>
+  </header>
+
+  <main>
+    <section id="setup">
+      <h2>Setup</h2>
+      <div class="row">
+        <label>Game Mode</label>
+        <select id="mode">
+          <option value="solo">Solo</option>
+          <option value="party">Party</option>
+        </select>
+      </div>
+      <div class="row party-only" hidden>
+        <label>Players (2–6)</label>
+        <input id="players" type="number" min="2" max="6" value="3">
+      </div>
+      <div class="row">
+        <label>Rounds (5–20)</label>
+        <input id="rounds" type="number" min="5" max="20" value="7">
+      </div>
+      <div class="row">
+        <label>Difficulty</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <button id="startBtn">Start Game ▶</button>
+    </section>
+
+    <section id="game" hidden>
+      <div id="scorebar"></div>
+      <div id="roundbar"></div>
+
+      <div id="card" class="card">
+        <div class="item">
+          <div class="item-text">
+            <h2 id="itemName"></h2>
+            <p id="itemDesc"></p>
+          </div>
+        </div>
+
+        <div id="guessArea">
+          <div id="partyInputs" hidden></div>
+          <div id="soloInput">
+            <label>Your Guess ($)</label>
+            <input id="guess" inputmode="decimal" type="number" step="0.01" min="0" placeholder="0.00">
+          </div>
+          <button id="lockBtn">Lock Guess 🔒</button>
+        </div>
+
+        <div id="reveal" hidden>
+          <p>Actual Price: <strong id="actual"></strong></p>
+          <p id="resultText"></p>
+          <button id="nextBtn">Next Round ⏭</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary" hidden>
+      <h2>Game Summary</h2>
+      <div id="summaryBody"></div>
+      <button id="restartBtn">Play Again 🔁</button>
+    </section>
+  </main>
+
+  <footer>
+    <small>Made with ❤️ — works offline, tracks high scores locally.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
