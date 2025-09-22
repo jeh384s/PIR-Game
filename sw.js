@@ -1,3 +1,4 @@
+alert("JavaScript loaded!");
 const CACHE = 'grocery-price-right-v1';
 const ASSETS = [
   './',
